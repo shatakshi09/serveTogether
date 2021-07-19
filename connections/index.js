@@ -1,176 +1,203 @@
-function notify(){
-	var message= "No new Notifications";
-    alert(message);
-}
+var express = require('express');
+var router = express.Router();
+var formidable = require('formidable');
+var User = require('../models/user');
+var path = require('path');
+var async = require('async');
 
-//----------------------- open quote of the day modal ---------------------
-
-function openQuoteOfTheDayDialog() {
-
-    var modal = document.getElementById("quote_of_day_dialog");
-
-    // Get the button that opens the modal
-    // Get the <span> element that closes the modal
-    var span = document.getElementById("close_quote_dialog");
-
-    // When the user clicks on the button, open the modal
-    modal.style.display = "flex";
-    modal.style.justifyContent = "center";
-    modal.style.alignItems = "center";
-
-
-    // When the user clicks on <span> (x), close the modal
-    span.onclick = function () {
-        modal.style.display = "none";
-    }
-
-    // When the user clicks anywhere outside of the modal, close it
-    window.onclick = function (event) {
-        if (event.target == modal) {
-            modal.style.display = "none";
-        }
-    }
-}
-
-$("#main_search").on("input", function () {
-    // Print entered value in a div box
-
-    let search = $("#main_search").val();
-
-   /* if (search.length > 0) {
-        $('#search_results').css('display', 'block');
-
-    } else {
-        $('#search_results').css('display', 'none');
-    }*/
-
-   
+// Get Homepage
+router.get('/', ensureAuthenticated, function(req, res){
+	
+	res.render('index', {
+		newfriend: req.user.request
+	});
 });
 
-function closeSearchBox() {
-    $('#search_results').css('display', 'none');
-    $("#main_search").val("")
+router.get('/search', ensureAuthenticated, function(req, res){
+	var sent =[];
+	var friends= [];
+	var received= [];
+	received= req.user.request;
+	sent= req.user.sentRequest;
+	friends= req.user.friendsList;
+	
+
+
+	User.find({username: {$ne: req.user.username}}, function(err, result){
+		if (err) throw err;
+		
+		res.render('search',{
+			result: result,
+			sent: sent,
+			friends: friends,
+			received: received
+		});
+	}).lean();
+});
+
+router.post('/search', ensureAuthenticated, function(req, res) {
+	  var searchfriend = req.body.searchfriend;
+	if(searchfriend) {
+	 	var mssg= '';
+		if (searchfriend == req.user.username) {
+			searchfriend= null;
+		}
+		 User.find({username: searchfriend}, function(err, result) {
+			 if (err) throw err;
+				 res.render('search', {
+				 result: result,
+				 mssg : mssg
+			 });
+	   	});	
+	}
+	 
+ 	async.parallel([
+		function(callback) {
+			if(req.body.receiverName) {
+					User.updateMany({
+						'username': req.body.receiverName,
+						'request.userId': {$ne: req.user._id},
+						'friendsList.friendId': {$ne: req.user._id}
+					}, 
+					{
+						$push: {request: {
+						userId: req.user._id,
+						username: req.user.username
+						}},
+						$inc: {totalRequest: 1}
+						},(err, count) =>  {
+							console.log(err);
+							callback(err, count);
+						})
+			}
+		},
+		function(callback) {
+			if(req.body.receiverName){
+					User.updateMany({
+						'username': req.user.username,
+						'sentRequest.username': {$ne: req.body.receiverName}
+					},
+					{
+						$push: {sentRequest: {
+						username: req.body.receiverName
+						}}
+						},(err, count) => {
+						callback(err, count);
+						})
+			}
+		}],
+	(err, results)=>{
+		res.redirect('/search');
+	});
+
+			async.parallel([
+				// this function is updated for the receiver of the friend request when it is accepted
+				function(callback) {
+					if (req.body.senderId) {
+						User.updateMany({
+							'_id': req.user._id,
+							'friendsList.friendId': {$ne:req.body.senderId}
+						},{
+							$push: {friendsList: {
+								friendId: req.body.senderId,
+								friendName: req.body.senderName
+							}},
+							$pull: {request: {
+								userId: req.body.senderId,
+								username: req.body.senderName
+							}},
+							$inc: {totalRequest: -1}
+						}, (err, count)=> {
+							callback(err, count);
+						});
+					}
+				},
+				// this function is updated for the sender of the friend request when it is accepted by the receiver	
+				function(callback) {
+					if (req.body.senderId) {
+						User.updateMany({
+							'_id': req.body.senderId,
+							'friendsList.friendId': {$ne:req.user._id}
+						},{
+							$push: {friendsList: {
+								friendId: req.user._id,
+								friendName: req.user.username
+							}},
+							$pull: {sentRequest: {
+								username: req.user.username
+							}}
+						}, (err, count)=> {
+							callback(err, count);
+						});
+					}
+				},
+				function(callback) {
+					if (req.body.user_Id) {
+						User.updateMany({
+							'_id': req.user._id,
+							'request.userId': {$eq: req.body.user_Id}
+						},{
+							$pull: {request: {
+								userId: req.body.user_Id
+							}},
+							$inc: {totalRequest: -1}
+						}, (err, count)=> {
+							callback(err, count);
+						});
+					}
+				},
+				function(callback) {
+					if (req.body.user_Id) {
+						User.updateMany({
+							'_id': req.body.user_Id,
+							'sentRequest.username': {$eq: req.user.username}
+						},{
+							$pull: {sentRequest: {
+								username: req.user.username
+							}}
+						}, (err, count)=> {
+							callback(err, count);
+						});
+					}
+				} 		
+			],(err, results)=> {
+				res.redirect('/search');
+			});
+});
+
+router.post('/', function(req, res) {
+	var form =new formidable.IncomingForm();
+	form.parse(req);
+	let reqPath= path.join(__dirname, '../');
+	let newfilename;
+	form.on('fileBegin', function(name, file){
+		file.path = reqPath+ 'public/upload/'+ req.user.username + file.name;
+		newfilename= req.user.username+ file.name;
+	});
+	form.on('file', function(name, file) {
+		User.findOneAndUpdate({
+			username: req.user.username
+		},
+		{
+			'userImage': newfilename
+		},
+		function(err, result){
+			if(err) {
+				console.log(err);
+			}
+		});
+	});
+	req.flash('success_msg', 'Your profile picture has been uploaded');
+	res.redirect('/');
+});
+
+function ensureAuthenticated(req, res, next){
+	if(req.isAuthenticated()){
+		return next();
+	} else {
+		//req.flash('error_msg','You are not logged in');
+		res.redirect('/users/login');
+	}
 }
 
-
-function searchingStatus() {
-
-    let searchText = $('#searching').val();
-
-    let hasSpecialCharacter = /[&\/\\#,+()$~%.'":*?<>{}]/g;
-
-    if (searchText == "") {
-        alert("Search field can't be empty")
-        return false;
-    }
-
-    if (hasSpecialCharacter.test(searchText) === true) {
-
-        alert("Please enter valid search text.")
-        return false;
-
-    }
-
-    $('#search > i').addClass('fa fa-spinner');
-
-    $('#search > i').css({
-        'animation': "rotate360 2s linear infinite"
-    })
-}
-
- 
-var Page_ValidationActive = false;
-if (typeof(ValidatorOnLoad) == "function") {
-    ValidatorOnLoad();
-}
-
-function ValidatorOnSubmit() {
-    if (Page_ValidationActive) {
-        return ValidatorCommonOnSubmit();
-    }
-    else {
-        return true;
-    }
-}
-        
-document.getElementById('MainContent_RequiredFieldValidator1').dispose = function() {
-    Array.remove(Page_Validators, document.getElementById('MainContent_RequiredFieldValidator1'));
-}
-
-document.getElementById('MainContent_RequiredFieldValidator2').dispose = function() {
-    Array.remove(Page_Validators, document.getElementById('MainContent_RequiredFieldValidator2'));
-}
-
-document.getElementById('MainContent_RequiredFieldValidator3').dispose = function() {
-    Array.remove(Page_Validators, document.getElementById('MainContent_RequiredFieldValidator3'));
-}
-
-document.getElementById('MainContent_RequiredFieldValidator4').dispose = function() {
-    Array.remove(Page_Validators, document.getElementById('MainContent_RequiredFieldValidator4'));
-}
-
-document.getElementById('MainContent_RequiredFieldValidator5').dispose = function() {
-    Array.remove(Page_Validators, document.getElementById('MainContent_RequiredFieldValidator5'));
-}
-
-
-
-$('.carousel').carousel({
-    interval: 2000
-})
-//------------------------------  scroll horizontal in the images -----------------------
-function scrollToRight(scrollFor) {
-
-  
-
-
-
-    if (scrollFor == 'IMAGE') {
-        let imgContainer = document.getElementById('image_video_container');
-
-
-        $('#image_video_container').animate({
-            scrollLeft: $('#image_video_container').scrollLeft() + 400
-        });
-
-    }
-
-
-    if (scrollFor == 'VIDEO') {
-
-        let imgContainer = document.getElementById('image_video_container_for_video');
-
-
-        $('#image_video_container_for_video').animate({
-            scrollLeft: $('#image_video_container_for_video').scrollLeft() + 400
-        });
-    }
-}
-
-
-function scrollToLeft(scrollFor) {
-
-    if (scrollFor == 'IMAGE') {
-        let imgContainer = document.getElementById('image_video_container');
-
-        let scroll =  imgContainer.scrollLeft - 400;
-
-        $('#image_video_container').animate({
-            scrollLeft: $('#image_video_container').scrollLeft() - 400
-        });
-
-    }
-
-
-    if (scrollFor == 'VIDEO') {
-        
-        let imgContainer = document.getElementById('image_video_container_for_video');
-
-        let scroll = imgContainer.scrollLeft - 400;
-
-        $('#image_video_container_for_video').animate({
-            scrollLeft: $('#image_video_container_for_video').scrollLeft() - 400
-        });
-    }
-}
-
+module.exports = router;
