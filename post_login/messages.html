@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+    
+  <meta charset="utf-8">
+  <title>serveTOGETHER</title>
+  <link rel=" icon" href="favicon.ico">
+
+  <!--Bootstrap CSS-->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+  <!--Captcha-->
+  <link href="BotDetectCaptcha.ashx?get=layout-stylesheet&amp;amp;t=1621933200" rel="stylesheet" type="css/captcha.css" />
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Montserrat|Ubuntu" rel="stylesheet">
+
+  <!-- CSS Stylesheets -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <link rel="stylesheet" type="text/css" href="css/styles.css">
+  <link rel="stylesheet" type="text/css" href="css/header.css">
+  <link rel="stylesheet" type="text/css" href="css/message.css">
+
+  <!-- Font Awesome -->
+  <script defer src="https://use.fontawesome.com/releases/v5.0.7/js/all.js"></script>
+
+  <!-- Bootstrap Scripts -->
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+  <!--JS-->
+  <script src="index.js" type="text/javascript"></script>
+  <script src="js/header.js"></script>
+  <script src="js/message.js"></script>
+  
+</head>
+<body onload="loadcontact()">
+	
+    <section class="colored-section" id="title">
+
+        <div class="container-fluid">
+    
+          <!-- Nav Bar -->
+    
+          <nav class="navbar navbar-expand-lg navbar-dark">
+    
+            <a class="navbar-brand" href="index.html">serveTOGETHER</a>
+    
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+    
+            <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+            <section id="features">
+              <ul class="navbar-nav ml-auto">
+              <div class="feature-box1">
+                <li style="position:relative;">
+                  <div class="spc-search-bar" style="width:250px;">
+                      <input name="ctl00$TextBox1" type="text" autocomplete="off" maxlength="20" id="TextBox1" class="SearchBox" placeholder="Search" />
+                      <a onclick="return searchingStatus();" id="LinkButton1" href="javascript:__doPostBack(&#39;ctl00$LinkButton1&#39;,&#39;&#39;)"><i  class="fa fa-search" style="color:black;"></i></a>
+    
+                  </div>
+                </li>
+              </div>
+             
+                <div class="feature-box">
+                  <li class="nav-item">
+                    <a class="nav-link" href="index.html"><i class=" icon fas fa-home fa-2x"></i></a>
+                    <!--Home-->
+                  </li>
+                </div>
+    
+                <div class="feature-box">
+                  <li class="nav-item">
+                    <a class="nav-link" href="#title"><i class="icon fas fa-wifi fa-2x"></i></a>
+                    <!--Connections-->
+                  </li>
+                </div>
+                 
+                
+                <div class="feature-box">
+                  <li class="nav-item">             
+                      <a class="nav-link" href="index.html"><i class="icon fas fa-lightbulb fa-2x"></i></a>
+                      <!--Recommendations-->
+                  </li>
+                </div>   
+    
+                <div class="feature-box">
+                  <li class="nav-item">
+                    <a class="nav-link" onclick="notify()" href="#title"> <i class="icon fas fa-bell fa-2x"></i></a>
+                    <!--Notifications-->
+                  </li>
+                </div> 
+
+                <div class="feature-box">
+                    <li class="nav-item">
+                      <a class="nav-link" href="messages.html"><i class=" icon fas fa-comments fa-2x"></i></a>
+                      <!--Messages-->
+                    </li>
+                  </div> 
+                 
+                
+                <div class="feature-box">
+                  <li class="nav-item">
+                    <!--Me-->
+                    <div class="contact-sub-menu">
+                      <a class="nav-link" href="#title"><i class="icon fas fa-user-circle fa-2x"></i></a>
+                      <!--<i class=" icon fa fa-angle-down" style="font-weight: 600; font-size: 1.2em;" aria-hidden="true"></i>-->
+                      <div class="submenu">
+                       <ul>
+                          <li class="item"><a href="#title" style="color: black;">View Profile</a></li>
+                          <li class="item"><a href="#title" style="color: black;">Logout</a></li>
+                      </ul>
+                      </div>
+                    </div>
+                    
+                  </li>
+                </div> 
+             
+                
+              </ul>
+            </section>
+             
+    
+            </div>
+          </nav>
+        </div>
+    </section>
+
+			
+
+            <!--Left fixed Section-->
+
+            <div class="boxed">
+                <i class=" icon_profile fas fa-user fa-5x"></i>
+                <div class="profile">
+                  <p>Name: Shatakshi Kaushal</p>
+                  <p>Connections: 11</p> 
+                  <p>City: New Delhi</p>
+                  <p>Country: India</p>
+                  <p>School: Father Agnel School</p>
+                  <p>College: IIT Guwahati</p>
+                  <div class="margin">
+                    <em><a class="styling" href="">View Profile</a></em>
+                    <br/>
+                    <em><a class="styling" href="">Log Out</a></em>
+                  </div>
+               
+                </div>
+              
+            </div>
+            <div class="foot">
+
+                <ul>
+                  <em ><a class="style" href="">About</a></em><br/>
+                  <em><a  class="style" href="">Contact</a></em><br/>
+                  <em><a  class="style" href="">Privacy and Policy</a></em><br/>
+                  <em><a  class="style" href="">Help</a></em><br/>
+                </ul>
+          
+                <em>Copyright © Shatakshi 2021</em>
+            </div>
+
+            <!--Left Section ends-->
+
+
+			<!-- start of main content section -->
+			<div class="mainnotfixed">
+				<!-- Start of left contact section -->
+				<div class="contact">	
+				<!-- heading messaging -->
+				<div class="headmsg">
+					<p>Messaging</p>
+				</div>
+
+				<!-- contact section content -->
+				<div class="leftcontent">
+					<!-- Search bar -->
+					<form id="contactsearch">
+					  <input type="text" name="search" placeholder="Search.." id="searchcontact">
+					</form>
+
+					<!-- Contacts -->
+					<div class="contacts">
+						<!-- users -->
+						<div class="contactuser" style="border-left: 8px solid #4aa96c; margin-top: 18px;" onclick="select(1)">
+							<i class=" icon_profile fas fa-user fa-1x"></i>
+							<p class="name">Aisha Ray</p>
+						</div>
+
+						<div class="contactuser" onclick="select(2);">
+							<i class=" icon_profile fas fa-user"></i>
+							<p class="name">Gaurav Rai</p>
+						</div>
+						<!-- End user -->
+
+					</div>
+					<!-- End contacts -->
+
+				</div>
+				<!-- End contact section -->				  
+			    </div>
+				<!-- End of left contact section -->
+				
+
+				<!-- Start of right chat section -->
+				<div class="chat">
+				<!-- heading chat user -->
+				<div class="chatuser">
+					<!-- heading chat user name and pic -->
+					<i class=" icon_profile fas fa-user"></i>
+							<p class="viewname">Aisha Ray</p>
+				</div>
+				<!-- End of chat user heading -->
+
+				<!-- chat msg start -->
+				<div class="chatmsg">
+					
+					<div class="received">
+						<p>Hello</p>
+					</div>
+
+					<div class="send">
+						<p>Hi!</p>
+					</div>
+
+					<div class="received">
+						<p>How are you?</p>
+					</div>
+
+				</div>
+				<!-- End of chat msg -->
+
+				<!-- to send msg box and button -->
+				<div class="sendmessage">
+					<textarea id="textarea"></textarea>
+					<p id="sendsymbol" onclick="sendmsg();">&#x27A4;</p>
+				</div>
+				<!-- end of msg box -->
+
+				</div>
+				<!-- End of right chat section -->
+		
+			</div>
+			<!-- End of main content section -->
+
+
+			<!--Right Fixed Section-->
+
+            <div class="container">
+                <img src="img2.jpeg" alt="protect the env" class="image">
+                <div class="middle">
+                  <div class="text">Protect the Environment</div>
+                </div>
+              </div>
+
+				
+
+			</div>
+			<!-- End of right section suggestion user -->
+	
+
+			<!-- message bar at the bottom -->
+			<div class="message" id="msg1">
+				<button id="msg2" onclick="showhide()">Messaging</button>
+				<p> No New Messages.</p>
+			</div>
+			<!-- End of message bar at the bottom -->
+
+		
+
+
+
+</body>
+</html>
