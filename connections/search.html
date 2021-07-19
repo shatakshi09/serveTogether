@@ -1,0 +1,136 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+	<title>LoginApp</title>
+	<link rel="stylesheet" href="/bootstrap_social.css" />
+	<link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  
+</head>
+<body>
+	<section class="colored-section" id="title">
+
+    <div class="container-fluid">
+
+      <!-- Nav Bar -->
+
+      <nav class="navbar navbar-expand-lg navbar-dark">
+
+        <a class="navbar-brand" href="index.html">serveTogether</a>
+        <!--<input type="hidden"  id="currentuser" value="Shatakshi">-->
+
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+          <section id="features">
+            <ul class="navbar-nav ml-auto">
+
+              <div class="feature-box1">
+                <li style="position:relative;">
+                  <div class="spc-search-bar" style="width:250px;">
+                      <input name="ctl00$TextBox1" type="text" autocomplete="off" maxlength="20" id="TextBox1" class="SearchBox" placeholder="Search" />
+                      <a onclick="return searchingStatus();" id="LinkButton1" href="javascript:__doPostBack(&#39;ctl00$LinkButton1&#39;,&#39;&#39;)"><i  class="fa fa-search" style="color:black;"></i></a>
+    
+                  </div>
+                </li>
+              </div>
+
+              <div class="feature-box">
+                <li class="nav-item">
+                  <a class="nav-link" href="#title"> 
+                    <div class="dropdown">
+                      <button class="dropbtn"><i class="fa fa-user-plus"></i></button>
+                      <div class="dropdown-content">
+                        <h4 style="text-align:center">No requests</h4>
+                      </div>
+                    </div>
+                  </a>
+                </li>
+              </div>
+
+              <div class="feature-box">
+                <li class="nav-item">
+                  <a class="nav-link" href="users/logout">Logout</a>
+                  <!--Logout-->
+                </li>
+              </div>
+
+            </ul>
+          </section>
+
+      </nav>
+   </div>
+  </section>
+     
+
+      
+
+
+      <div class="row">
+        <div class="col-lg-12">
+
+
+          
+          
+<h2>Search Friends</h2>
+<form action="/search" method="post">
+	<input type="text" name="searchfriend" placeholder="username">
+	<input type="submit" value="search">
+</form>
+<hr>
+	
+	<div class="usercard col-lg-3">
+		<img class="usercard-image" src="upload/Pappushatakshi.jpg">
+		<h4 class="usercard-name">Reena </h4>
+		<p class="usercard-username">@(Reena)</p>
+		<form action="" method="get" class="add_friend">
+            <input type="hidden" name="receiverName" class="receiverName" value="Reena">
+            <input type="hidden" name="sender-name" class="sender-name" value="">
+            <button type="submit" id="" onclick="addFriend('Pappu')" class="btn add accept friend-add"><i class="fa fa-user"></i> Add Friend</button>
+        </form>
+	</div>
+	<div class="usercard col-lg-3">
+		<img class="usercard-image" src="upload/SumoPhoto on 07-09-20 at 11.48 AM.jpg">
+		<h4 class="usercard-name">Sumedha Sharma</h4>
+		<p class="usercard-username">@(Sumo)</p>
+		<form action="" method="get" class="add_friend">
+            <input type="hidden" name="receiverName" class="receiverName" value="Sumo">
+            <input type="hidden" name="sender-name" class="sender-name" value="">
+            <button type="submit" id="" onclick="addFriend('Sumo')" class="btn add accept friend-add"><i class="fa fa-user"></i> Add Friend</button>
+        </form>
+	</div>
+	<div class="usercard col-lg-3">
+		<img class="usercard-image" src="upload/Tanushatakshi.jpg">
+		<h4 class="usercard-name">Tanya Kaushal</h4>
+		<p class="usercard-username">@(Tanu)</p>
+		<form action="" method="get" class="add_friend">
+            <input type="hidden" name="receiverName" class="receiverName" value="Tanu">
+            <input type="hidden" name="sender-name" class="sender-name" value="">
+            <button type="submit" id="" onclick="addFriend('Tanu')" class="btn add accept friend-add"><i class="fa fa-user"></i> Add Friend</button>
+        </form>
+	</div>
+
+	
+        </div>
+
+        
+      </div>
+
+      <footer class="footer">
+        <p>&copy; Shatakshi 2021</p>
+      </footer>
+
+    </div> <!-- /container -->
+</body>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <script type="text/javascript" src="/socket.io/socket.io.js"></script>
+  <script type="text/javascript" src="/js/sendrequest.js"></script>
+  <script type="text/javascript">
+  
+  </script>
+</html>

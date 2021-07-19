@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>LoginApp</title>
+	<link rel="stylesheet" href="css/bootstrap_social.css" />
+	<link rel="stylesheet" href="css/styles.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  
+</head>
+<body>
+
+
+  <section class="colored-section" id="title">
+
+    <div class="container-fluid">
+
+      <!-- Nav Bar -->
+
+      <nav class="navbar navbar-expand-lg navbar-dark">
+
+        <a class="navbar-brand" href="index.html">serveTOGETHER</a>
+
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+        <section id="features">
+          <ul class="navbar-nav ml-auto">
+          <div class="feature-box1">
+            <li style="position:relative;">
+              <div class="spc-search-bar" style="width:250px;">
+                  <input name="ctl00$TextBox1" type="text" autocomplete="off" maxlength="20" id="TextBox1" class="SearchBox" placeholder="Search" />
+                  <a onclick="return searchingStatus();" id="LinkButton1" href="javascript:__doPostBack(&#39;ctl00$LinkButton1&#39;,&#39;&#39;)"><i  class="fa fa-search" style="color:black;"></i></a>
+
+              </div>
+            </li>
+          </div>
+         
+            <div class="feature-box">
+              <li class="nav-item">
+                <a class="nav-link" href="#title">Login</a>
+                <!--Login-->
+              </li>
+            </div>
+
+            <div class="feature-box">
+              <li class="nav-item">
+                <a class="nav-link" href="#title">Register</a>
+                <!--Register-->
+              </li>
+            </div>
+            
+               
+          </ul>
+        </section>
+         
+
+        </div>
+      </nav>
+    </div>
+</section>
+
+
+
+	<div class="container">
+    
+      <div class="row">
+        <div class="col-lg-12">
+            <div class="alert alert-success">You are logged out</div>
+
+
+          
+            <h2 class="page-header">Account Login</h2>
+            <form method="post" action="/users/login">
+            <div class="form-group">
+              <label>Username</label>
+              <input type="text" class="form-control" name="username" placeholder="Username">
+            </div>
+            <div class="form-group">
+              <label>Password</label>
+              <input type="password" class="form-control" name="password" placeholder="Password">
+            </div>
+            <button type="submit" class="btn btn-default">Submit</button>
+            </form>
+        </div>
+
+        
+      </div>
+
+      <footer class="footer">
+        <p>&copy; 2021 Shatakshi</p>
+      </footer>
+
+    </div> <!-- /container -->
+</body>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <script type="text/javascript" src="/socket.io/socket.io.js"></script>
+  <script type="text/javascript" src="/js/sendrequest.js"></script>
+  <script type="text/javascript">
+  
+  </script>
+</html>
