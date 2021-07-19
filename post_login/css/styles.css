@@ -1,0 +1,810 @@
+
+body {
+  font-family: "Montserrat";
+  text-align: center;
+  margin: 0%;
+  padding: 0%;
+  background-image: url("images/img1.jpeg");
+  background-repeat: no-repeat;
+  background-color: #F3F3F3
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: "Montserrat-Bold";
+}
+
+p {
+  color: #8f8f8f;
+  color: black;
+}
+span{
+  display: block;
+}
+
+
+/*profile*/
+
+.icon_profile{
+  margin-top: 20px;
+}
+.profile{
+  margin-top: 20px;
+  color: black;
+}
+.margin{
+  margin-top: 80px;
+}
+.foot{
+  margin-top: 15px;
+  float: left;
+  position: absolute;
+  top: 675px;
+  left: 50px;
+  height: 180px;
+  width: 300px;
+  border: 1px solid #B7B7B7;
+  box-shadow: 4px 1.5px 5px #999999;
+  border-radius: 5px;
+  color: black;
+  background-color: white;;
+  padding-top: 20px;
+  text-align: center;
+}
+
+.styling{
+  color: black;
+}
+
+.style{
+  color: black;
+  position: relative;
+  left: 0px;
+  text-align: left;
+}
+/* box */
+
+.boxed {
+  
+  height: 500px;
+  width: 300px;
+  position: relative;
+  left: 50px;
+  margin-top: 50px;
+  border-radius: 5px;
+  border: 1px solid #B7B7B7;
+  box-shadow: 4px 1.5px 5px #999999;
+  outline: 1px;
+  font-size: var(--fontSubTextSize);
+  float: left;
+  color: black;
+  background-color: white;
+  
+}
+
+/* Uploads */
+
+.upload-box{
+
+  margin-top: 50px;
+  padding-bottom: 10px;
+  left: 500px;
+  float: left;
+  font-size: var(--fontSubTextSize);
+  color: black;
+  background-color: #F3F3F3;
+  border: none;
+  outline: 1px;
+  border-radius: 5px;
+  height: 50px;
+  width: 300px;
+}
+.below_box{
+  width: 450px;
+  height: 400px;
+  float: left;
+  padding-top: 10px;
+  top: 200px;
+  left: 530px;
+  border-radius: 5px;
+  background-color: #F3F3F3;
+}
+
+.space_1{
+  padding-right: 20px;
+}
+
+.icon-1{
+  padding-right: 10px;
+}
+
+.icon-2{
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+.icon-3{
+  padding-left: 10px;
+}
+
+.box{
+  position: absolute;
+  left: 420px;
+  margin-right: 20px;
+  background-color: #F3F3F3;
+}
+
+/* 1st Post*/
+
+
+/*parent of main*/
+.mainnotfixed
+{
+	float: left;
+	width: 450px;
+	height: 240px;
+}
+
+/*to post an content section*/
+.main
+{
+	/*width: 558px;*/
+	/*height: 220px;*/
+	background-color: #FFFFFF;
+	border: 1px solid #B7B7B7;
+	/*position: fixed;*/
+	border-radius: 4px;
+	padding: 15px;
+	margin-bottom: 20px;
+	box-shadow: 4px 1.5px 5px #999999;
+}
+
+/*horizontal line to seperate post and posted content*/
+
+.mainnotfixed hr
+{
+	border: 0.5px solid #B7B7B7;
+	outline: 0px;
+	width: 90%;
+	box-shadow: 1px 1px 5px #999999;
+	margin-bottom: 18px;
+}
+
+/*same class name of post and posted content*/
+.mainpost
+{	
+
+	background-color: #FFFFFF;
+	border: 1px solid #B7B7B7;
+	/*position: fixed;*/
+	border-radius: 4px;
+	padding: 15px;
+	box-shadow: 4px 1.5px 5px #999999;
+	margin-bottom: 5px;
+}
+
+/*user image size of the post and posted content*/
+.mainpost .userimg img
+{
+	width: 45px;
+	height: 45px;
+	/*padding-bottom: 30px;*/ 
+	float: left;
+}
+
+/*user name design of post and posted content*/
+.mainpost .name
+{
+	/*display: inline;*/
+  text-align: left;
+	font-size: 16px;
+	position: relative;
+	top: 4px;
+	font-weight: bold;
+	/*float: left;*/
+}
+
+/*time of post of design for post and posted content*/
+.mainpost .time
+{
+  text-align: left;
+  font-size: 12px;
+	color: #999999;
+}
+
+/*parent of content image of the post and posted content*/
+.mainpost .post
+{
+	/*padding: 30px;*/
+	/*margin-top: 10px;*/
+	max-height: 250px;
+}
+
+
+/*content image of the post and posted content*/
+.mainpost .postimg
+{
+	max-width: 100%;
+	max-height: 250px;
+	display: block;
+	margin: 0 auto;
+}
+
+/*paragraph of the posted content*/
+.mainpost .quotes
+{
+	margin: 12px 4px 8px 4px;
+	font-size: 14px;
+	/*letter-spacing: 0.5px;*/
+	font-family: sans-serif;
+	text-align: center;
+	padding: 5px;
+}
+
+/*post article of the input area*/
+.main .quotes textarea
+{
+	margin-top: 8px;
+	width: 100%;
+	height: 70px;
+	outline: 0px;
+	padding: 5px;
+	border: 1px solid #D1D1D1;
+	font-size: 14px;
+	font-family: sans-serif;
+	text-align: justify;
+	resize: none;
+	box-sizing: border-box;
+}
+
+/*post bar where post and image button available*/
+.postbar
+{
+  padding: 10px 10px 1px 10px;
+  
+}
+
+/*design button of post in postbar*/
+.imgbttn
+{	
+  float: inline-start;
+	font-size: 15px;
+	background-color: white;
+	border: 3px solid #615D5E;
+	border-radius: 4px;
+  outline: 0px;
+	left: 0px;
+  box-shadow: 3px 3px 5px #999999;
+
+}
+
+/*design button of post in postbar*/
+.main .postbar .postmypost
+{
+  float: right;
+	font-size: 16px;
+  padding: 6px 9px 4px 9px;
+	background-color: #4aa96c;
+	outline: 0px;
+	border: 0px;
+	border-radius: 4px;
+	box-shadow: 3px 3px 5px #999999;
+}
+
+/*post button hover effect*/
+.main .postbar .postmypost:hover
+{
+	background-color: #4aa96c;
+	color: white;
+}
+
+/*post button when click effect*/
+.main .postbar .postmypost:active
+{
+  background-color: #4CAF50;
+  box-shadow: 0 5px 4px #666;
+  transform: translateY(5px);
+}
+
+/*choose image which overwritten by imgbttn*/
+.main .postbar #chooseimg
+{
+	width: 90px;
+	/*float: left;*/
+	height: 28px;
+	font-size: 12px;
+	position:absolute;
+	opacity: 0;
+}
+
+.main .postimg
+{
+	max-height: 150px;
+}
+
+/*like count in posted content*/
+.likedislike .like
+{
+	font-size: 11px;
+	font-family: Verdana;
+	color: #999;
+}
+
+/*like dislike button section in posted section*/
+.likedisbttn
+{
+	margin: 0px;
+	border: 1px solid #D1D1D1;
+	padding: 5px;
+}
+
+/*common class for like and dislike button*/
+.likedisbttn .fa
+{
+	/*color: #4aa96c;*/
+	font-size: 18px;
+	margin-right: 10px;
+}
+
+/*like button of posted content*/
+.likedisbttn .fa-thumbs-up
+{
+	margin-left: 8px;
+}
+
+/*dislike button of posted content*/
+.likedisbttn .fa-thumbs-down
+{
+	margin-left: 13px;
+}
+
+/*mouse over effect in like and dislike button*/
+.likedisbttn .fa:hover
+{
+	color: #4aa96c;
+	/*color: red;*/
+}
+
+/*mouse click effect in like and dislike button*/
+.likedisbttn .fa:active
+{
+  	transform: translateY(2px);
+}
+
+/* image */
+.container {
+  left: 500px;
+  width: 33%;
+  float: right;
+  margin-top: 50px;
+  height: 450px;
+}
+
+.image {
+  display: block;
+  opacity: 1;
+  width: 100%;
+  height: 700px;
+  transition: .5s ease;
+  backface-visibility: hidden;
+  border-radius: 5px;
+  float: right;
+  margin-right: 40px;
+  margin-left: 40px;
+  border: 1px solid #B7B7B7;
+  box-shadow: 4px 1.5px 5px #999999;
+}
+
+.middle {
+  transition: .5s ease;
+  opacity: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+}
+
+.container:hover .image {
+  opacity: 0.3;
+}
+
+.container:hover .middle {
+  opacity: 1;
+}
+
+.text {
+  background-color: #4aa96c;
+  color: white;
+  font-size: 16px;
+  padding: 16px 32px;
+}
+
+
+/* Headings */
+
+.big-heading {
+  font-family: "Montserrat-Black";
+  font-size: 3.5rem;
+  line-height: 1.5;
+}
+
+.section-heading {
+  font-size: 3rem;
+  line-height: 1;
+}
+
+/* Containers */
+
+.container-fluid{
+  padding:  7% 15%;
+  padding-left: 1%;
+  padding-top: 40px;
+}
+
+/* Sections */
+
+.colored-section {
+  background-color: #4aa96c;
+  color: #fff;
+  height: 120px;
+
+}
+
+/* Search Bar */
+
+.spc-search-bar {
+  height: 30px;
+  width: 150px;
+  border-radius: 30px;
+  border: 1.2px solid white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding:0;
+  padding: 1px 10px;
+  font-weight: 600;
+  background-color:white;
+  position:relative;
+}
+
+  .spc-search-bar  input {
+      width: 80%;
+      height:25px;
+      font-size: var(--fontSubTextSize);
+      color:black;
+      background-color:white;
+      border:none;
+      outline:none;
+  }
+
+
+#search_results {
+  width: 250px;
+  height: auto;
+  box-shadow: 1px 1px 10px 2px rgba(10,10,10,0.2);
+  background-color: white;
+  padding: 10px;
+  display: block;
+  position:absolute;
+  z-index:15;
+  top:40px;
+  border-radius:5px;
+  max-height:350px;
+}
+
+.search-box {
+  width: 80%;
+  height: 25px;
+  font-size: var(--fontSubTextSize);
+  color: black;
+  background-color: white;
+  border: none;
+  outline: none;
+}
+
+.search-icon {
+  width:5px;
+  height:5px;
+  object-fit:contain;
+}
+
+
+/* Navigation Bar */
+
+
+.navbar {
+  padding: 0 0 4.5rem;
+  right: 0px;
+
+}
+
+.navbar-brand {
+  font-family: "Ubuntu";
+  font-size: 2.0rem;
+  font-weight: bold;
+  position: relative;
+  left: 50px;
+  margin-top: 15px;
+}
+.nav-item {
+  padding-left: 10px;
+  padding-right: 10px;
+  align-items: center;
+}
+
+.nav-link {
+  font-size: 1.2rem;
+  font-family: "Montserrat-Light";
+}
+.nav-link:hover{
+  color: #fff;
+}
+
+
+/* Feature-Box */
+
+
+#features {
+  position: absolute;
+  margin-left: 300px;
+}
+.feature-box1{
+  position: relative;
+  align-items: center;
+  top: 20px;
+  right: 100px;
+  padding-right: 120px;
+}
+.feature-box{
+  align-items: center;
+ 
+}
+.icon:hover {
+  color: #fff;
+}
+
+
+
+
+/* Me Slidedown */
+
+.submenu {
+  list-style-type: none;
+  display: none;
+  position: absolute;
+ 
+  transition: 0.2s;
+  text-align:start;
+  color: #fff;
+}
+.item{
+  color: black;
+  
+}
+.contact-sub-menu:hover .submenu {
+  display: block;
+}
+
+.contact-sub-menu:hover .max-submenu {
+  display: block;
+}
+
+.active {
+  background-color: #f7f3e9;
+}
+
+.spc_navbar_min_button {
+  display: none;
+}
+
+/* Carousels */
+
+#demo{
+  position: relative;
+  top: 320px;
+  bottom: 100px;
+  float: initial;
+  
+  
+}
+
+
+/* --------------------   quote of the day container ------------------------*/
+
+.quote-of-the-container {
+  width: 100%;
+  position: relative;
+  top: 270px;
+  bottom: 100px;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  margin-top:10px;
+  
+}
+
+  .quote-of-the-container .quote-of-the-day-body {
+      background-color: #dbe3e5;
+      width:82%;
+      padding:20px;
+      border-radius:8px;
+      display:flex;
+      flex-direction:column;
+      align-items:center;
+      justify-content:center;
+}
+
+    .quote-of-the-container .quote-of-the-day-body h3 {
+          text-align: start;
+          font-weight: 600;
+          font-size: var(--fontTextSize);
+          color: #26494a;
+          display: block;
+          margin-bottom:10px;
+      }
+
+
+      .quote-of-the-container .quote-of-the-day-body p, .quote-of-the-container .quote-of-the-day-body i {
+          font-weight: 400;
+          font-size: var(--fontTextSize);
+          text-align:start;
+      }
+
+/*-----  top bar designs ----------------*/
+@media  (max-width: 640px) {
+  .quote-of-the-container .quote-of-the-day-body {
+      width: 85%;
+
+  }
+
+}
+
+@media (min-width: 640px) and (max-width: 768px) {
+  .quote-of-the-container .quote-of-the-day-body {
+      width: 85%;
+  }
+}
+
+@media (max-width: 768px) and (max-width: 1024px) {
+  .quote-of-the-container .quote-of-the-day-body {
+      width: 85%;
+  }
+}
+
+
+
+/* Recommendations */
+.contact-us-form-container {
+  margin: 20px 0px;
+  padding-top: 30px;
+  width: 100%;
+  margin-bottom: 250px;
+  position:relative;
+  top:370px;
+  bottom: 100px;
+  background-color: #4aa96c;
+  color: #fff;
+  font-size: 1rem;
+  line-height: 1.5;
+  align-items: center;
+  justify-content:center;
+  padding-bottom: 15px;
+
+
+}  
+.form-field {
+    align-items: center;
+    justify-content:center;
+    padding-bottom: 5px;
+}
+
+.recommendations-box{
+  text-align: center;
+  font-size: var(--fontSubTextSize);
+  color: black;
+  background-color: white;
+  border: none;
+  outline: 1px;
+  border-radius: 30px;
+  border: 1.2px solid white;
+  height: 50px;
+  width: 300px;
+  padding-bottom: 15px;
+}
+
+.space{
+  padding-right: 20px;
+  padding-bottom: 5px;
+}
+
+.padding{
+  padding-bottom: 20px;
+}
+
+
+
+/* Footer Section */
+
+
+.social-icon {
+  margin: 20px 10px;
+}
+
+@media (max-width: 1028px) {
+
+  #title {
+    text-align: center;
+  }
+
+  .title-image {
+    position: static;
+    transform: rotate(0);
+  }
+}
+
+
+
+
+
+
+
+
+
+
+@media  (max-width: 550px) {
+  .one-div.boxed {
+      width: 100%;
+  }
+  .one-div.upload {
+    width: 100%;
+  }
+  .one-div.container {
+  width: 100%;
+  }
+  #demo{
+    width:100%;
+  }
+  #get-in-touch{
+    width: 100%;
+  }
+
+}
+
+@media (min-width: 550px) and (max-width: 900px) {
+  .boxed {
+    width: 100%;
+  }
+  .upload {
+    width: 100%;
+  }
+  .container {
+    width: 100%;
+  }
+
+  #demo{
+    width: 100%;
+  }
+  #get-in-touch{
+    width: 100%;
+  }
+}
+
+@media (max-width: 900px) and (max-width: 1400px) {
+  .boxed{
+    width: 100%;
+  }
+  .upload{
+    width: 100%;
+  }
+  .container{
+    width: 100%;
+  }
+  #demo{
+    width: 100%;
+  }
+  #get-in-touch{
+    width: 100%;
+  }
+}
+
+
