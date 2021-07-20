@@ -1,1 +1,1 @@
-The project is being created with the view of connecting environmentalists and conservationalists with the necessary governmental and non-govt. organizations.
+The project is being created with the view of connecting environmentalists and conservationists with the necessary governmental and non-government organizations.It uses Javascript, jQuery, HTML and CSS for the development of the website i.e. the frontend.The backend is being developed in Node.js. The database management would be accomplished using DBMS and SQL.
